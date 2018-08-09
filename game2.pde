@@ -8,6 +8,9 @@ int decayTop=10, decayBottom=5;
 boolean decaySign=true;
 float lastDecayTime=0, decayInterval=2000;
 int randomDecay=4;
+int time;
+
+
 
 void setup()
 {
@@ -21,6 +24,7 @@ void setup()
   background(255);
   noStroke();
   fill(200);
+  reset();
 }
 
 void draw()
@@ -29,6 +33,9 @@ void draw()
   scale(zoom);
   drawing();
   life();
+  if( time > millis() ){
+    reset();}
+ 
 }
 
 void life() {
@@ -130,4 +137,9 @@ void mouseDragged() {
     }
   }
   }
+}
+
+void reset(){
+  // ...
+  time = millis() + 6000;
 }
